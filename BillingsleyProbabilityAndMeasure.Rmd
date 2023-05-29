@@ -65,11 +65,7 @@ For finite unions of order $K$, given $\epsilon > 0$, form $\frac{\epsilon}{2K}$
 
 \textbf{a} Show that $A_r(i)$ is trifling.
 \begin{proof}
-We observe $r=3,i=1$ yields the Cantor set. This gets our foot in the door for intuition, i.e. we can think of these sets via the construction "Remove the $i$-th $r$-rd of $(0,1]$. For each remaining subset, remove the $i$-th $r$-d. Repeat ad infinitum." We see that at the $k$th step, we've removed intervals with summed length \ba{
-\frac{1}{r} + \frac{1}{r}\left(1-\frac{1}{r}\right) + \frac{1}{r}\left(1- \frac{1}{r}\left(1-\frac{1}{r}\right) \right) + \ldots + \left(\sum_{j=1}^k \frac{(-1)^{j+1}}{r^k} \right) &= \sum_{l=1}^k\sum_{j=1}^l \frac{(-1)^{j+1}}{r^k}\\
-&=\frac{k}{r}-\frac{k-1}{r^2}+\ldots+(-1)^{k-1}\frac{1}{r^k} \\
-&=\sum_{j=1}^k (-1)^{j+1}\frac{k-j+1}{r^j}
-}
+We observe $r=3,i=1$ yields the Cantor set. This gets our foot in the door for intuition, i.e. we can think of these sets via the construction "Remove the $i$-th $r$-rd of $(0,1]$. For each remaining subset, remove the $i$-th $r$-d. Repeat ad infinitum." 
 If we consider the measure of the remaining set, at each stage we remove exactly $\frac{1}{r}$ of the remaining mass. Thus we have the sequence:
 \ba{
 \frac{r-1}{r}, \left(\frac{r-1}{r}\right)^2, \ldots
@@ -79,4 +75,5 @@ Given $\epsilon$, we can find $K_\epsilon = K$ such that at stage $K$, our appro
 \end{proof}
 
 \textbf{b}
+
 
