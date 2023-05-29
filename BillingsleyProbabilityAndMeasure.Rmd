@@ -1,0 +1,82 @@
+---
+title: "Billingsley Probability and Measure"
+author: "AHC"
+output: 
+  pdf_document:
+    extra_dependencies: ["amsthm", "amsmath"]
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\newcommand{\mean}[1]{\bar{#1}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\ba}[1]{\begin{align}#1\end{align}}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+
+\section{Chapter 1}
+\textbf{1.1 a)}
+We are to show that a countable probability space $\{\Omega, \mathbb{F}, P\}$ cannot have infinitely many independent events $A_1,A_2, \ldots$ each with probability $\frac{1}{2}$:
+
+I think the key fact here is $P(\Omega) = 1 = \sum_{\omega \in \Omega}P(\omega)$, i.e. the measure of the tail $\Omega_n = \{\omega \in \Omega \vert n \ge N_\epsilon\}$ has probability less than $\epsilon$.
+\begin{proof}
+To have measure $\frac{1}{2}$, each $A_i$ must have non-empty intersection with a finite set $\Omega_{n < N_\epsilon}  = S \subsetneq \Omega$. Since since $P(A_i \cap A_j) = \frac{1}{4}$, the $A_i$ are distinct. On the other hand, since $P(A_i) = \frac{1}{2}$, they cannot differ only on $S^c$, as then the measure of their intersection would satisfy $P(A_i \cap A_J) > \frac{1}{2}-\epsilon > \frac{1}{4}$. For this we'd need countably infinitely many distinct subsets of $S$, but the power set of $S$ has cardinality $|P(S)| = 2^{|S|} < \infty$. 
+\end{proof}
+
+\textbf{1.1 b)}
+Suppose that $0 < p_n < 1$, and put $a_n = \text{min}\{p_n,1 -p_n\}$. Show that, if $\sum_n a_n$
+diverges, then no discrete probability space can contain independent events $A_1,A_2, \ldots$ such that $A_n$ has probability $p_n$. 
+
+\begin{proof}
+\color{red}{$\ldots$}
+\end{proof}
+
+\textbf{1.2}
+Show that $N$ and $N^c$ are both dense in $(0,1]$. 
+\begin{proof}
+$N$ has Lebesgue measure 1, so it must intersect every open interval. On the other hand, every number $x \in N$ can be approximated arbitrarily well by terminating its decimal expansion.
+\end{proof}
+
+\textbf{1.3}
+
+\textbf{a)} Show that a trifling set is negligible: \begin{proof} The trifling sets are a subset (the subset where the cover is finite) of the negligible sets.  \end{proof}
+\textbf{b)} Show that the closure of a trifling set is also trifling.
+\begin{proof}
+Given $\epsilon > 0$, form a finite (say order $K$) $\frac{\epsilon}{2}$ cover, and then extend the endpoints of each covering interval out by $\frac{\epsilon}{5K}$ , and intersect these sets with $(0,1]$. The result is an (at maximum) $\frac{7}{10}\epsilon$ cover. 
+\end{proof}
+\textbf{c)} Find a bounded negligible set that is not trifling.
+\begin{proof}
+Consider $N^c$. This set has measure zero but is dense in $(0,1]$. So e.g. if $\epsilon < \frac{1}{2}$, there is no finite $\epsilon$ cover, as this would imply $N^c$ is compact, but $N^c$ is not closed, because it is dense in $(0,1]$ and hence its closure is $[0,1] \supsetneq N^c$.
+\end{proof}
+\textbf{d)}
+Show that the closure of a negligible set may not be negligible.
+\begin{proof}
+See \textbf{c)} above.
+\end{proof}
+\textbf{e)} Show that finite unions of trifling sets are trifling but that this can fail for
+countable unions.
+\begin{proof}
+For finite unions of order $K$, given $\epsilon > 0$, form $\frac{\epsilon}{2K}$ covers. On the other hand, $\mathbb{Q}\cap(0,1]$ is the countable union of its points, each of which as a set is trifling. $\mathbb{Q}\cap(0,1]$ is dense in $(0,1]$, so if it were trifling by part \textbf{b} $[0,1]$ would be trifling.
+\end{proof}
+
+\textbf{1.4} For $i=0, \ldots r-1$,let $A_r(i)$ be the set of numbers in $(0,1]$ whose non-terminating expansions in the base $r$ do not contain the digit $i$.
+
+\textbf{a} Show that $A_r(i)$ is trifling.
+\begin{proof}
+We observe $r=3,i=1$ yields the Cantor set. This gets our foot in the door for intuition, i.e. we can think of these sets via the construction "Remove the $i$-th $r$-rd of $(0,1]$. For each remaining subset, remove the $i$-th $r$-d. Repeat ad infinitum." We see that at the $k$th step, we've removed intervals with summed length \ba{
+\frac{1}{r} + \frac{1}{r}\left(1-\frac{1}{r}\right) + \frac{1}{r}\left(1- \frac{1}{r}\left(1-\frac{1}{r}\right) \right) + \ldots + \left(\sum_{j=1}^k \frac{(-1)^{j+1}}{r^k} \right) &= \sum_{l=1}^k\sum_{j=1}^l \frac{(-1)^{j+1}}{r^k}\\
+&=\frac{k}{r}-\frac{k-1}{r^2}+\ldots+(-1)^{k-1}\frac{1}{r^k} \\
+&=\sum_{j=1}^k (-1)^{j+1}\frac{k-j+1}{r^j}
+}
+If we consider the measure of the remaining set, at each stage we remove exactly $\frac{1}{r}$ of the remaining mass. Thus we have the sequence:
+\ba{
+\frac{r-1}{r}, \left(\frac{r-1}{r}\right)^2, \ldots
+}
+This sequence clearly converges to zero. We are to show that what remains is compact, which is wild as it's also uncountable, which we can observe by diagonalization of the set of r-expansions where $i$ never appears.
+Given $\epsilon$, we can find $K_\epsilon = K$ such that at stage $K$, our approximation to $A_r(i)$ given by the first $K$ deletions has measure less than $ \frac{\epsilon}{2}$. These (finitely many) $N_K = N$ disjoint sub-intervals all have the same width by construction so each has width less than $\frac{\epsilon}{2N}$. We can then cover each with a ball of radius $\frac{3\epsilon}{4N}$.
+\end{proof}
+
+\textbf{b}
+
