@@ -63,7 +63,7 @@ For finite unions of order $K$, given $\epsilon > 0$, form $\frac{\epsilon}{2K}$
 
 \textbf{1.4} For $i=0, \ldots r-1$,let $A_r(i)$ be the set of numbers in $(0,1]$ whose non-terminating expansions in the base $r$ do not contain the digit $i$.
 
-\textbf{a} Show that $A_r(i)$ is trifling.
+\textbf{a)} Show that $A_r(i)$ is trifling.
 \begin{proof}
 We observe $r=3,i=1$ yields the Cantor set. This gets our foot in the door for intuition, i.e. we can think of these sets via the construction "Remove the $i$-th $r$-rd of $(0,1]$. For each remaining subset, remove the $i$-th $r$-d. Repeat ad infinitum." 
 If we consider the measure of the remaining set, at each stage we remove exactly $\frac{1}{r}$ of the remaining mass. Thus we have the sequence:
@@ -74,6 +74,8 @@ This sequence clearly converges to zero. We are to show that what remains is com
 Given $\epsilon$, we can find $K_\epsilon = K$ such that at stage $K$, our approximation to $A_r(i)$ given by the first $K$ deletions has measure less than $ \frac{\epsilon}{2}$. These (finitely many) $N_K = N$ disjoint sub-intervals all have the same width by construction so each has width less than $\frac{\epsilon}{2N}$. We can then cover each with a ball of radius $\frac{3\epsilon}{4N}$.
 \end{proof}
 
-\textbf{b}
+\textbf{b)} Find a trifling set $A$ such that every point in the unit interval can be represented in the form $x +y$ with $x$ and $y$ in $A$.
+
+Playing with the Cantor set, for the first 3 iterations $C_1,C_2,C_3$, we can write any $z \in [0,1]$ as a sum of elements $x,y$ in $\{0\}\cup C_i$. Perhaps via induction we could show this property holds for all $C_i, i \in \mathbb{N}$. Assuming we can do this, does this imply the property holds in the limit?
 
 
