@@ -76,6 +76,14 @@ Given $\epsilon$, we can find $K_\epsilon = K$ such that at stage $K$, our appro
 
 \textbf{b)} Find a trifling set $A$ such that every point in the unit interval can be represented in the form $x +y$ with $x$ and $y$ in $A$.
 
-Playing with the Cantor set, for the first 3 iterations $C_1,C_2,C_3$, we can write any $z \in [0,1]$ as a sum of elements $x,y$ in $\{0\}\cup C_i$. Perhaps via induction we could show this property holds for all $C_i, i \in \mathbb{N}$. Assuming we can do this, does this imply the property holds in the limit?
+Playing with the Cantor set, for the first 3 iterations $C_1,C_2,C_3$, we can write any $z \in [0,1]$ as a sum of elements $x,y$ in $\{0\}\cup C_i$. Perhaps via induction we could show this property holds for all $C_i, i \in \mathbb{N}$. Assuming we can do this, does this imply the property holds in the limit? We know we can express any element in the limit via a base 3 expansion where $1$ never occurs. Perhaps we can construct $x$, $y$ from this fact? Consider $z=0.1$. In this case, we can take $x=0.02020\ldots$, $y=0.002020\ldots$. Really any partition of $0.022\ldots$ in $C$ will suffice. Perhaps we can generalize? Consider $z=0.111\ldots$. As a geometric series in base 3, this sums to $\frac{1}{3}\left( \frac{1}{1-\frac{1}{3}}\right)=\frac{1}{2}=0.1\left(\frac{1}{.222\ldots-0.1}\right)=\frac{0.1}{0.1222\ldots}=\frac{0.1}{0.2}$.
+\begin{proof}
+Okay let's try this: suppose $z$ has a $1$ in it's expansion base 3. We can generate this one via a carried $1$ from addition on the next digit. So then the question is, can we make the next digit whatever we want, given that we must generate a $1$ to carry? Well, if we need $0$, that's a $2$ and a one carried from the next digit. For a $1$, we can use two $2$'s. If we need a $2$, we can use two $2$'s a carry a one from the next digit. Each time we're forced to carry a digit, the logic we just used saves us. So the Cantor set suffices.
+\end{proof}
 
+\textbf{c)} (c) Let $A_r(i_1, \ldots , i_k )$ consist of the numbers in the unit interval in whose base-r expansions the digits $i_1, ... , i_k$ nowhere appear consecutively in that order. Show that it is trifling. What does this imply about the monkey that types at random?
 
+\begin{proof} Firstly, awesome question. Secondly, once we note that $A_r(i_1,i_2)$ is isomorphic to $A_{r^2}(i_1i_2)$, and more generally  $A_r(i_1, \ldots , i_k ) \simeq A_{r^k}(i_1\cdots i_k)$ we see that this is an immediate consequence of part \textbf{a)}. 
+
+For the monkey, this means that the Monkey will type all of literature. All the books that have been lost to time and all that could ever be written. The monkey will type them in all possible permutations, and all possible permutations of finitely many copies. What about infinitely many copies?
+\end{proof}
